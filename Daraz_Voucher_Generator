@@ -1,0 +1,27 @@
+import random
+from collections import Counter
+list_of_alphanumobj =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+list_of_numbers = ['0','1','2','3','4','5','6','7','8','9']
+list_of_voucher = []
+final_str=''
+for i in range (0,10000):
+	random_str = ''
+	random_num = ''
+	for i in range (0,4):
+		rndnum = random.randint(0,25)
+		random_str += list_of_alphanumobj[rndnum]
+	for i in range(0,2):
+		rand_number = random.randint(0,9)
+		random_num+=str(list_of_numbers[rand_number])
+
+	final_str += '"DFG'+random_str+random_num+'",'
+	#list_of_voucher.append(final_str)
+file = open('result.txt','w')
+file.write(final_str)
+
+'''
+
+list_of_voucher = Counter(list_of_voucher)
+for data in list_of_voucher:
+	print(data)
+'''
